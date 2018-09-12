@@ -87,7 +87,7 @@ class StockInAdmin(generic.BOAdmin):
                 try:
                     InItem.objects.get(po_item=item,master=obj)
                     continue
-                except Exception,e:
+                except Exception as e:
                     pp = item.discount_price or item.price
                     if decimal.Decimal(item.tax) > decimal.Decimal(0):
                         pp = pp /(decimal.Decimal(1)+decimal.Decimal(item.tax))
@@ -95,7 +95,7 @@ class StockInAdmin(generic.BOAdmin):
                                                 po_item=item,master=obj,cnt=item.left_cnt,price=pp,batch=obj.batch,source=obj.code)
 
     def get_readonly_fields(self, request, obj=None):
-        print obj
+        print (obj)
         if obj and obj.status == 9:
             return ['code','title','po','warehouse','batch','status']
         else:

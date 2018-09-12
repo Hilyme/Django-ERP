@@ -251,7 +251,7 @@ def get_modal(app_label,model_name):
     """
     try:
         return Modal.objects.get(app_name=app_label,model_name=model_name)
-    except Exception,e:
+    except Exception as e:
         return None
 
 
@@ -266,7 +266,7 @@ def get_instance(obj):
         if modal:
             try:
                 return Instance.objects.get(modal=modal,object_id=obj.id)
-            except Exception,e:
+            except Exception as e:
                 return None
     else:
         return None

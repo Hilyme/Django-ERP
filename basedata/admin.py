@@ -125,7 +125,7 @@ class WarehouseAdmin(admin.ModelAdmin):
             if not code:
                 obj.code = '%s%02d' % ('A',obj.id)
                 obj.save()
-        except Exception,e:
+        except Exception as e:
             self.message_user(request,'ERROR:%s' % e,level=messages.ERROR)
 
 
@@ -153,7 +153,7 @@ class CategoryAdmin(admin.ModelAdmin):
                 else:
                     obj.path = obj.parent.name
                 obj.save()
-        except Exception,e:
+        except Exception as e:
             self.message_user(request,'ERROR:%s' % e,level=messages.ERROR)
 
 

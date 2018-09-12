@@ -615,7 +615,7 @@ class DataImport(generic.BO):
                                 # print 'name is %s value is %s'%(name,v)
                             try:
                                 params.pop('')
-                            except Exception,e:
+                            except Exception as e:
                                 pass
                             # print params
                             klass.objects.create(**params)

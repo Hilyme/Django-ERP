@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'mis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'NAME': 'mis',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'ENGINE': 'django.db.backends.mysql',#MYSQL类型数据库，Python会依赖MySQL的驱动器
+        'HOST': 'localhost',#数据库主机地址
+        'NAME': 'mis',#数据库名称
+        'USER': 'root',#数据库用户名（建议不要加入root敢死队）
+        'PASSWORD': 'hily1234',#数据库密码
     }
 }
 

@@ -80,17 +80,17 @@ class InitialInventory(generic.BO):
 
                     try:
                         measure = Measure.objects.get(code=unit_code)
-                    except Exception,e:
+                    except Exception as e:
                         measure = Measure.objects.create(code=unit_code,name=force_text(unit_name.decode('gbk')))
 
                     try:
                         house = Warehouse.objects.get(code=warehouse_code)
-                    except Exception,e:
+                    except Exception as e:
                         house = Warehouse.objects.create(code=warehouse_code,name=force_text(warehouse_name.decode('gbk')))
 
                     try:
                         material = Material.objects.get(code=code)
-                    except Exception,e:
+                    except Exception as e:
                         material = Material(code=code,name=force_text(name.decode('gbk')),spec=force_text(description.decode('gbk')),warehouse=house)
                         material.stock_price = price
                         material.save()
@@ -183,7 +183,7 @@ class StockIn(generic.BO):
                         inventory.cnt += item.cnt
                         inventory.save()
                         total_amount += item.price*item.cnt
-                    except Exception,e:
+                    except Exception as e:
                         Inventory.objects.create(warehouse=self.warehouse,material=item.material,measure=item.measure,
                                                  cnt=item.cnt,price=item.price,org=self.org)
                         item.material.stock_price = item.price
@@ -420,7 +420,7 @@ class InItem(InOutDetail):
                     total_amount = self.price*self.cnt+inventory.price*inventory.cnt
                     total_count = self.cnt+inventory.cnt
                     return total_amount/total_count
-            except Exception,e:
+            except Exception as e:
                 pass
         return self.price or ''
 

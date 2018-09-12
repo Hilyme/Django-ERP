@@ -25,7 +25,7 @@ class WorkflowModelAdmin(admin.ModelAdmin):
     )
 
     def get_form(self, request, obj=None, **kwargs):
-        print kwargs
+        print (kwargs)
         return super(WorkflowModelAdmin,self).get_form(request,obj,**kwargs)
 
     def save_model(self, request, obj, form, change):

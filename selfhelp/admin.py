@@ -108,7 +108,7 @@ class LoanAdmin(generic.BOAdmin):
                 if obj and obj.status == 'P':
                     extra_context = extra_context or {}
                     extra_context.update(dict(readonly=True))
-            except Exception,e:
+            except Exception as e:
                 pass
         return super(LoanAdmin,self).changeform_view(request,object_id,form_url,extra_context)
 
@@ -182,7 +182,7 @@ class ReimbursementAdmin(generic.BOAdmin):
                 if obj and obj.status == 'P':
                     extra_context = extra_context or {}
                     extra_context.update(dict(readonly=True))
-            except Exception,e:
+            except Exception as e:
                 pass
         return super(ReimbursementAdmin,self).changeform_view(request,object_id,form_url,extra_context)
 

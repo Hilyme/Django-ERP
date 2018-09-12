@@ -90,7 +90,7 @@ class RequestUser(object):
             try:
                 todolist = self.get_my_task(request)
                 context.update(dict(todolist = todolist))
-            except Exception,e:
+            except Exception as e:
                 pass
             # print context
             view_kwargs['extra_context'] = context

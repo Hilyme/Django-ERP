@@ -67,11 +67,11 @@ class WorkOrder(generic.BO):
                     measure = None
                     try:
                         measure = Measure.objects.get(code=row[4])
-                    except Exception,e:
+                    except Exception as e:
                         measure = Measure.objects.create(code=row[4],name=force_text(row[5]))
                     try:
                         material = Material.objects.get(code=row[0])
-                    except Exception,e:
+                    except Exception as e:
                         material = Material(code=row[0],name=force_text(row[1]),spec=force_text(row[2]))
                         material.save()
                     WOItem.objects.create(workorder=self,material=material,measure=measure,amount=row[6])
